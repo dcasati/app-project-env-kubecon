@@ -39,7 +39,7 @@ spec:
           - resources-finalizer.argocd.argoproj.io
         project: default
         sources:
-          - repoURL: https://github.com//app-project-env-kubecon.git
+          - repoURL: https://github.com/dcasati/app-project-env-kubecon.git
             path: argocd-apps
             targetRevision: HEAD
             directory:
