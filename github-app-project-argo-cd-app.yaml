@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/dcasati/app-project-env.git'
+    repoURL: 'https://github.com/dcasati/app-project-env-kubecon.git'
     targetRevision: main
     path: samples
     directory:
