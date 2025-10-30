@@ -2,7 +2,7 @@ apiVersion: addons.cluster.x-k8s.io/v1alpha1
 kind: HelmChartProxy
 metadata:
   name: argocd
-  namespace: argocd
+  namespace: default
 spec:
   clusterSelector:
     matchLabels: {}
@@ -19,7 +19,7 @@ apiVersion: addons.cluster.x-k8s.io/v1alpha1
 kind: HelmChartProxy
 metadata:
   name: argocd-app
-  namespace: argocd
+  namespace: default
 spec:
   clusterSelector:
     matchLabels: {}
