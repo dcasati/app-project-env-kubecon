@@ -15,9 +15,9 @@ spec:
     helm:
       valuesObject:
         clusterName: "dev-cluster"
-        location: "westus3"
+        location: "eastus"
         subscriptionID: "6edaa0d4-86e4-431f-a3e2-d027a34f03c9"
-        clientID: "822557a4-6175-4f6b-bf97-87711af562f3"
+        clientID: ""
         tenantID: "de060cb6-6b37-489b-8a6e-c078c6dbeb09"
         authMode: "workloadidentity"
         kubernetesVersion: v1.32.7
