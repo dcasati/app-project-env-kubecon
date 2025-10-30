@@ -22,6 +22,8 @@ spec:
         authMode: "workloadidentity"
         kubernetesVersion: v1.32.7
         clusterNetwork: "overlay"
+        withClusterClass: true
+        withClusterTopology: true
         managedMachinePoolSpecs:
           pool0:
             count: 1
