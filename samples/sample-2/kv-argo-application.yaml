@@ -1,0 +1,36 @@
+apiVersion: resources.azure.com/v1api20200601
+kind: ResourceGroup
+metadata:
+  name: rg-dev-app
+  namespace: rg-dev-app
+  annotations:
+    serviceoperator.azure.com/credential-from: rg-dev-app-aso-credentials
+spec:
+  location: 
+---
+apiVersion: keyvault.azure.com/v1api20210401preview
+kind: Vault
+metadata:
+  name: app-keyvault-8968
+  namespace: rg-dev-app
+  annotations:
+    serviceoperator.azure.com/credential-from: rg-dev-app-aso-credentials
+spec:
+  location: 
+  owner:
+    name: rg-dev-app
+    kind: ResourceGroup
+  properties:
+    tenantId: de060cb6-6b37-489b-8a6e-c078c6dbeb09
+    sku:
+      family: "A"
+      name: "standard"
+    accessPolicies:
+      - tenantId: de060cb6-6b37-489b-8a6e-c078c6dbeb09
+        objectId:   # User or Service Principal Object ID
+        permissions:
+          secrets:
+            - get
+            - list
+            - set
+    enableSoftDelete: true
