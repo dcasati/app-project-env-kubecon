@@ -22,9 +22,6 @@ spec:
         authMode: "workloadidentity"
         kubernetesVersion: v1.32.7
         clusterNetwork: "overlay"
-        withClusterClass: false
-        withClusterTopology: false
-        clusterClassName: "aksasoclass"
         managedMachinePoolSpecs:
           pool0:
             count: 1
