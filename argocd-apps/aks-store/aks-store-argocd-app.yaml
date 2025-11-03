@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: aks-store-demo
-  namespace: default
+  namespace: pets
 spec:
   project: default
   source:
