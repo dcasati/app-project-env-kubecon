@@ -11,7 +11,7 @@ spec:
     path: kustomize/overlays/dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: pets
   syncPolicy:
     automated: {}
   syncOptions:
