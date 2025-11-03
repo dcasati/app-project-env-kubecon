@@ -14,4 +14,6 @@ spec:
     namespace: pets
   syncPolicy:
     automated: {}
+  syncOptions:
+    - CreateNamespace=true
     
