@@ -34,7 +34,7 @@ spec:
   valuesTemplate: |
     applications:
       shared-team-cluster-apps:
-        namespace: argocd
+        namespace: default
         finalizers:
           - resources-finalizer.argocd.argoproj.io
         project: default
