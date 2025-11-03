@@ -2,7 +2,7 @@ apiVersion: addons.cluster.x-k8s.io/v1alpha1
 kind: HelmChartProxy
 metadata:
   name: argocd
-  namespace: argocd
+  namespace: default
 spec:
   clusterSelector:
     matchLabels:
@@ -16,12 +16,17 @@ spec:
     timeout: 5m
     install:
       createNamespace: true
+  valuesTemplate: |
+    argocd-controller-manager:
+      serviceAccount:
+        create: true
+        name: argocd-application-controller
 ---
 apiVersion: addons.cluster.x-k8s.io/v1alpha1
 kind: HelmChartProxy
 metadata:
   name: argocd-app
-  namespace: argocd
+  namespace: default
 spec:
   clusterSelector:
     matchLabels:
@@ -36,8 +41,6 @@ spec:
     install:
       createNamespace: true
   valuesTemplate: |
-    global:
-      namespace: argocd
     applications:
       shared-team-cluster-apps:
         namespace: argocd
@@ -53,18 +56,3 @@ spec:
         destination:
           server: https://kubernetes.default.svc
           namespace: argocd
-        syncPolicy:
-          automated:
-            prune: false
-            selfHeal: false
-          syncOptions:
-            - CreateNamespace=true
-        revisionHistoryLimit: 2
-        ignoreDifferences:
-          - group: apps
-            kind: Deployment
-            jsonPointers:
-              - /spec/replicas
-        info:
-          - name: url
-            value: https://argoproj.github.io/
