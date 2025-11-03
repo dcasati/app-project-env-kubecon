@@ -5,7 +5,8 @@ metadata:
   namespace: argocd
 spec:
   clusterSelector:
-    matchLabels: {}
+    matchLabels:
+      deploy-argocd: "true"
   repoURL: https://argoproj.github.io/argo-helm
   chartName: argo-cd
   releaseName: argocd
@@ -23,7 +24,8 @@ metadata:
   namespace: argocd
 spec:
   clusterSelector:
-    matchLabels: {}
+    matchLabels:
+      deploy-argocd: "true"
   repoURL: https://argoproj.github.io/argo-helm
   chartName: argocd-apps
   releaseName: argocd-apps
