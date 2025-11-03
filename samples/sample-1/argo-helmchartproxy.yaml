@@ -8,6 +8,8 @@ spec:
     matchLabels: {}
   repoURL: https://argoproj.github.io/argo-helm
   chartName: argo-cd
+  releaseName: argocd
+  releaseNamespace: argocd
   options:
     waitForJobs: true
     wait: true
@@ -25,6 +27,8 @@ spec:
     matchLabels: {}
   repoURL: https://argoproj.github.io/argo-helm
   chartName: argocd-apps
+  releaseName: argocd-apps
+  releaseNamespace: argocd
   options:
     waitForJobs: true
     wait: true
@@ -34,7 +38,7 @@ spec:
   valuesTemplate: |
     applications:
       shared-team-cluster-apps:
-        namespace: default
+        namespace: argocd
         finalizers:
           - resources-finalizer.argocd.argoproj.io
         project: default
@@ -46,7 +50,7 @@ spec:
               recurse: true
         destination:
           server: https://kubernetes.default.svc
-          namespace: default
+          namespace: argocd
         syncPolicy:
           automated:
             prune: false
